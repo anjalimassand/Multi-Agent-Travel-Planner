@@ -1,5 +1,5 @@
 # Multi-Agent-Travel-Planner
-# Built following Krish Naik’s Trip Agent tutorial, with modifications.
+Built following Krish Naik’s Trip Agent tutorial, with modifications.
 
 An open-source AI travel planner that turns a natural-language trip request or prompt into a travel plan with flight suggestions, hotel ideas, and a day-by-day itinerary. The project uses a multi-agent workflow built with LangGraph, LangChain, and FastAPI.
 
