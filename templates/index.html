@@ -2,127 +2,214 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>AI Trip Assistant</title>
+    <title>AI Travel Planner</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="/static/style.css">
 </head>
 
 <body>
 
-    <div class="page-bg">
-        <div class="gradient-circle circle-1"></div>
-        <div class="gradient-circle circle-2"></div>
-        <div class="gradient-circle circle-3"></div>
+    <div class="background">
+        <div class="orb orb-one"></div>
+        <div class="orb orb-two"></div>
+        <div class="grid-pattern"></div>
     </div>
 
     <main class="app-container">
 
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="brand">
+                <div class="brand-icon">✦</div>
+                <span>AI Travel Planner</span>
+            </div>
+
+            <div class="nav-right">
+                <span class="system-status">
+                    <span class="status-dot"></span>
+                    AI SYSTEM ONLINE
+                </span>
+            </div>
+        </nav>
+
+        <!-- Hero -->
         <section class="hero-section">
-            <div class="badge">
-                ✈️ AI Trip Assistant — A Multi-Agent Travel Planner with LangGraph
+
+            <div class="hero-label">
+                <span>✧</span> YOUR PERSONAL AI TRAVEL COMPANION
             </div>
 
             <h1>
-                Plan Your Perfect Trip with AI
+                The world is yours.<br>
+                <span>Let's plan your next adventure.</span>
             </h1>
 
-            <p>
-                Search flights, discover hotels, and generate a complete travel itinerary using a multi-agent LangGraph system.
+            <p class="hero-description">
+                From flights and stays to unforgettable experiences,
+                let AI turn your travel ideas into a complete itinerary.
             </p>
+
+            <div class="hero-features">
+                <div class="feature-item">
+                    <span>✈</span> Flight discovery
+                </div>
+                <div class="feature-item">
+                    <span>⌂</span> Hotel recommendations
+                </div>
+                <div class="feature-item">
+                    <span>✧</span> Smart itineraries
+                </div>
+            </div>
+
         </section>
 
+        <!-- Planner -->
         <section class="planner-card">
 
-            <div class="card-header">
+            <div class="planner-top">
                 <div>
-                    <h2>Where do you want to go?</h2>
-                    <p>
-                        Example: Plan a complete 7 days Japan trip from Bangladesh under 2 lakhs.
-                    </p>
+                    <div class="section-eyebrow">START YOUR JOURNEY</div>
+                    <h2>Where to next?</h2>
+                    <p>Tell us what you're dreaming of. We'll handle the details.</p>
                 </div>
 
-                <div class="status-pill">
-                    <span class="status-dot"></span>
-                    Online
-                </div>
+                <div class="travel-icon">✈</div>
             </div>
 
             <div class="input-area">
+
+                <div class="input-label">
+                    <span>YOUR TRAVEL PLANS</span>
+                    <span class="input-hint">Be as detailed as you like</span>
+                </div>
+
                 <textarea
                     id="userInput"
-                    placeholder="Plan a complete 7 days Italy trip including flights, hotels and sightseeing under 4000 dollars."
+                    placeholder="Example: Plan a 7-day Italy trip from Spain for two people, including flights, hotels, sightseeing and food recommendations, under $4,000..."
                 ></textarea>
 
-                <button id="sendBtn" onclick="sendMessage()">
-                    <span id="btnText">Generate Plan</span>
-                    <span id="btnLoader" class="loader hidden"></span>
-                </button>
+                <div class="input-bottom">
+                    <span class="input-tip">
+                        ✨ AI-powered personalized planning
+                    </span>
+
+                    <button id="sendBtn" onclick="sendMessage()">
+                        <span id="btnText">Generate my trip</span>
+                        <span class="button-arrow">→</span>
+                        <span id="btnLoader" class="loader hidden"></span>
+                    </button>
+                </div>
+
             </div>
 
-            <div class="quick-prompts">
-                <button onclick="setPrompt('Plan a complete 7 days Japan trip from Bangladesh including flights, hotels and sightseeing under 2 lakhs.')">
-                    Japan Trip
-                </button>
+            <!-- Quick prompts -->
+            <div class="quick-prompts-section">
+                <div class="quick-heading">
+                    <span>NEED SOME INSPIRATION?</span>
+                    <span class="quick-subtitle">Try a popular destination</span>
+                </div>
 
-                <button onclick="setPrompt('Plan a 5 days Dubai trip from Dhaka with flights, hotels and sightseeing.')">
-                    Dubai Trip
-                </button>
+                <div class="quick-prompts">
 
-                <button onclick="setPrompt('Plan a 7 days Thailand trip from Bangladesh with budget hotels and sightseeing.')">
-                    Thailand Trip
-                </button>
+                    <button onclick="setPrompt('Plan a complete 5 day Japan trip from Italy including flights, hotels and sightseeing under $3000.')">
+                        <span class="prompt-emoji">🇯🇵</span>
+                        Japan
+                        <span class="prompt-arrow">↗</span>
+                    </button>
 
-                <button onclick="setPrompt('Give me all country flight info.')">
-                    Global Flights
-                </button>
+                    <button onclick="setPrompt('Plan a week long Dubai trip from USA with flights, hotels and sightseeing.')">
+                        <span class="prompt-emoji">🇦🇪</span>
+                        Dubai
+                        <span class="prompt-arrow">↗</span>
+                    </button>
+
+                    <button onclick="setPrompt('Plan a 10 day Thailand trip from India with budget hotels and sightseeing.')">
+                        <span class="prompt-emoji">🇹🇭</span>
+                        Thailand
+                        <span class="prompt-arrow">↗</span>
+                    </button>
+
+                    <button onclick="setPrompt('Give me all country flight info.')">
+                        <span class="prompt-emoji">🌍</span>
+                        Global flights
+                        <span class="prompt-arrow">↗</span>
+                    </button>
+
+                </div>
             </div>
 
         </section>
 
+        <!-- Results -->
         <section id="resultSection" class="result-section hidden">
 
             <div class="result-header">
+
                 <div>
-                    <h2>Your AI Travel Plan</h2>
+                    <div class="section-eyebrow">YOUR PERSONALIZED JOURNEY</div>
+                    <h2>Your travel itinerary</h2>
                     <p id="threadInfo">Thread ID: -</p>
                 </div>
 
                 <div class="result-actions">
                     <button class="copy-btn" onclick="copyResult()">
-                        Copy
+                        <span>▣</span> Copy
                     </button>
 
                     <button class="download-btn" onclick="downloadPDF()">
-                        Download PDF
+                        <span>↓</span> Download PDF
                     </button>
                 </div>
+
             </div>
 
             <div id="pdfContent" class="pdf-content">
-                <h1 class="pdf-title">AI Travel Plan</h1>
+
+                <div class="pdf-heading">
+                    <span>✦ AI Travel Planner</span>
+                    <h1 class="pdf-title">Your Travel Plan</h1>
+                    <p>Designed for your next great adventure.</p>
+                </div>
+
                 <div id="resultBox" class="result-box"></div>
+
             </div>
 
         </section>
 
+        <!-- Error -->
         <section id="errorBox" class="error-box hidden"></section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-brand">AI Travel Planner</div>
+
+            <p>
+                Built for explorers, powered by intelligent agents.
+            </p>
+
+            <div class="footer-tech">
+                FASTAPI <span>·</span>
+                LANGGRAPH <span>·</span>
+                GROQ <span>·</span>
+                POSTGRESQL <span>·</span>
+                TAVILY <span>·</span>
+                AVIATIONSTACK
+            </div>
+        </footer>
 
     </main>
 
-    <footer>
-        Built with FastAPI, LangGraph, Groq, PostgreSQL, Tavily, and AviationStack
-    </footer>
-
-    <!-- Markdown Renderer -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
-    <!-- PDF Download Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    <!-- Your Custom JS -->
     <script src="/static/script.js"></script>
 
 </body>
