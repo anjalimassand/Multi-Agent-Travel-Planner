@@ -3,7 +3,8 @@ from tools.flight_tool import search_flights
 from backend import run_travel_agent
 
 import asyncio
-from mcp_client_test import get_all_tools, tavily_mcp_search
+# from mcp_client_test import get_all_tools, tavily_mcp_search
+from mcp_client import get_all_tools
 
 # res = tavily_search("Best hotels in USA")
 # print(res)
@@ -22,8 +23,10 @@ from mcp_client_test import get_all_tools, tavily_mcp_search
 # print(response["answer"])
 
 if __name__ == "__main__":
+    asyncio.run(get_all_tools())
     # asyncio.run(get_all_tools())
-    query = "latest news about AI"
-    asyncio.run(tavily_mcp_search(query))
+    # query = "latest news about AI"
+    # asyncio.run(tavily_mcp_search(query))
+    
 
 

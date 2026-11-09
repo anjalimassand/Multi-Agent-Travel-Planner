@@ -15,7 +15,7 @@ TAVILY_API_KEY = os.getenv("TAVILY_API_KEY")
 client = MultiServerMCPClient(
     {
        "tavily": {
-            "transport": "http",  # Remote MCP server
+            "transport": "streamable_http",  # Remote MCP server
             "url": f"https://mcp.tavily.com/mcp/?tavilyApiKey={TAVILY_API_KEY}"
         },  
     }
@@ -28,7 +28,7 @@ async def get_all_tools():
     for tool in tools:
         print(tool.name)
 
-# Retuns tavily_search tool object
+# Returns tavily_search tool object
 tavily_search_tool = None
 
 async def get_tavily_search_tool():
